@@ -43,6 +43,8 @@ GPIO(AnalogInput) --+--<2.2kR>--- ButtonA --- GND（タクトスイッチ）
 					+--<4.7kR>--- ButtonB --- GND（タクトスイッチ）
 					+--< 10kR>--- ButtonC --- GND（タクトスイッチ）
 ```
+ButtonCとしてButtonP（サムスティックのプッシュボタン）を割り当てればGPIO(DigitalInput)は不要となります。
+この場合、3つのGPIO(AnalogInput)でAxisX,Y,ButtonA,B,Pに対応する形です。
 
 ## フォルダ構成
 ```
