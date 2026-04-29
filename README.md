@@ -15,26 +15,33 @@ InputLibを応用したゲームパッドライブラリ
 
 ## 配線
 ```
-		ESP32-C3	*…BootStrap関連ピン
-		[Antenna side]
-		3V3	IO-0	AxisY(AnalogInput)
-LCD-RESET	EN	IO-1	AxisX(AnalogInput)
+			ESP32-C3	*…BootStrap関連ピン
+			[Antenna side]
+			3V3		IO-0	AxisY(AnalogInput)
+LCD-RESET	EN		IO-1	AxisX(AnalogInput)
 LCD-DC		IO-4	IO-2*	SPI-MISO
-		IO-5	IO-3	ButtonABC(AnalogInput)
+			IO-5	IO-3	ButtonABC(AnalogInput)
 SPI-SCK		IO-6	USB_D+
 SPI-MOSI	IO-7	USB_D-
-		IO-8*	TXD
+			IO-8*	TXD
 ButtonP		IO-9*	RXD
-		GND	IO-10*	SPI-SS
+			GND		IO-10*	SPI-SS
 ```
 ```
-GPIO(AnalogInput) ---- AxisX（サムスティックの軸1）
-GPIO(AnalogInput) ---- AxisY（サムスティックの軸2）
-GPIO(DigitalInput) --- ButtonP（サムスティックに内蔵のプッシュボタン）
-GPIO(AnalogInput) --+--<2.2kR>---3V3
-		    +--<2.2kR>---ButtonA（タクトスイッチ）
-		    +--<4.7kR>---ButtonB（タクトスイッチ）
-		    +--< 10kR>---ButtonC（タクトスイッチ）
+					+-- 3V3
+GPIO(AnalogInput) --+-- AxisX（サムスティックの軸1）
+					+-- GND
+
+					+-- 3V3
+GPIO(AnalogInput) --+-- AxisY（サムスティックの軸2）
+					+-- GND
+
+GPIO(DigitalInput) ---- ButtonP --- GND（サムスティックに内蔵のプッシュボタン）
+
+					+--<2.2kR>--- 3V3
+GPIO(AnalogInput) --+--<2.2kR>--- ButtonA --- GND（タクトスイッチ）
+					+--<4.7kR>--- ButtonB --- GND（タクトスイッチ）
+					+--< 10kR>--- ButtonC --- GND（タクトスイッチ）
 ```
 
 ## フォルダ構成
@@ -42,18 +49,18 @@ GPIO(AnalogInput) --+--<2.2kR>---3V3
 <lib>
   +--<GamePadLib>
   +--<InputLib>	GamePadLibを使用するのに必須
-  +--<GLcdLib>	付属のmain.cppを動かすには必要
-  +--<SpiDma>	付属のmain.cppを動かすには必要
+  +--<GLcdLib>	付属のmain.cppを動かす場合に必要
+  +--<SpiDma>	付属のmain.cppを動かす場合に必要
 ```
-[InputLibを参照](https://github.com/jsdiy/InputLib), 
-[GLcdLibを参照](https://github.com/jsdiy/GLcdLib), 
-[SpiDmaを参照](https://github.com/jsdiy/SpiDma)
+[InputLibを参照](https://github.com/jsdiy/InputLib),
+[GLcdLib/SpiDmaを参照](https://github.com/jsdiy/GLcdLib)
 
 ## platformio.ini
 ```
 lib_extra_dirs =
-  ./lib/InputLib
-  ./lib/GamePadLib
+  ./lib/InputLib	必須
+  ./lib/GamePadLib	必須
+  ./lib/GLcdLib		付属のmain.cppを動かす場合に必要
 ```
 
 ## main.cpp 最小コード例
@@ -74,7 +81,7 @@ void	loop()
 	if (gpad.CheckKeyState())
 	{
 		//キー入力に応じた様々な処理
-		if (gpad.IsKeyHolding(Key::A)) { /* Aボタンが押されている場合の処理 */ }
+		if (gpad.IsKeyHolding(Key::A)) { Aボタンが押されている場合の処理 }
 	}
 }
 ```
