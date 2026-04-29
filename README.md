@@ -41,16 +41,21 @@ GPIO(AnalogInput) --+--<2.2kR>---3V3
 ```
 <lib>
   +--<GamePadLib>
-  +--<InputLib>	GamePadLibを使用するのに必須 [参照](https://github.com/jsdiy/InputLib)
-  +--<GLcdLib>	付属のmain.cppを動かすには必要 [参照](https://github.com/jsdiy/GLcdLib)
-  +--<SpiDma>	付属のmain.cppを動かすには必要 [参照](https://github.com/jsdiy/SpiDma)
+  +--<InputLib>	GamePadLibを使用するのに必須
+  +--<GLcdLib>	付属のmain.cppを動かすには必要
+  +--<SpiDma>	付属のmain.cppを動かすには必要
 ```
+[InputLibを参照](https://github.com/jsdiy/InputLib), 
+[GLcdLibを参照](https://github.com/jsdiy/GLcdLib), 
+[SpiDmaを参照](https://github.com/jsdiy/SpiDma)
+
 ## platformio.ini
 ```
 lib_extra_dirs =
   ./lib/InputLib
   ./lib/GamePadLib
 ```
+
 ## main.cpp 最小コード例
 ```
 #include <Arduino.h>
