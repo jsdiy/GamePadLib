@@ -6,6 +6,7 @@
 #pragma	once
 
 #include <Arduino.h>
+#include <string>
 #include "HwSwitch.hpp"
 
 class HwSwitchRvd	: public HwSwitch

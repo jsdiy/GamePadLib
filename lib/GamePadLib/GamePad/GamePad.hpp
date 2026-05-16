@@ -5,6 +5,7 @@
 #pragma	once
 
 #include <Arduino.h>
+#include <string>
 #include "AnalogInputRvd.hpp"
 #include "HwSwitchRvd.hpp"
 #include "Joystick.hpp"

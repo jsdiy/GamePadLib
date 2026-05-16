@@ -5,6 +5,7 @@
 #pragma	once
 
 #include <Arduino.h>
+#include <string>
 #include "AnalogInput.hpp"
 
 class AnalogInputRvd	: public AnalogInput
