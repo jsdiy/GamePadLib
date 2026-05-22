@@ -97,3 +97,6 @@ void	loop()
 - タクトスイッチ
 
 ![動作確認環境](https://github.com/jsdiy/GamePadLib/blob/main/sample/IMG_20260429_000808.jpg)
+![動作確認環境](https://github.com/jsdiy/GamePadLib/blob/main/sample/IMG_20260515_223954.jpg)
+![動作確認環境](https://github.com/jsdiy/GamePadLib/blob/main/sample/IMG_20260521_180651.jpg)
+![動作確認環境](https://github.com/jsdiy/GamePadLib/blob/main/sample/IMG_20260521_180720.jpg)
